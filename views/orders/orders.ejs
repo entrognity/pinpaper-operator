@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Process</title>
+    <link rel="stylesheet" href="/css/ordersStyles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-page">
+                <h1>Order Processing</h1>
+
+                <!-- Filters -->
+                <div id="upFilters">
+                    <label for="orderID">Enter Order ID:</label>
+                    <input type="text" id="orderID" placeholder="Enter order ID" />
+
+                    <label for="service">Select a Service:</label>
+                    <select name="serviceId" id="serviceIDInp">
+                        <option value="">--Select Service--</option>
+                        <% services.forEach(service=> { %>
+                            <option value="<%= service.serviceID %>">
+                                <%= service.serviceName %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <label for="orderStatus">Enter Order Status:</label>
+                    <select name="orderStatus" id="orderStatusInp">
+                        <option value="">Select Order Status</option>
+                        <option value="requested"> Requested </option>
+                        <option value="processing"> Processing </option>
+                        <option value="completed"> Completed </option>
+                        <option value="rejected"> Rejected </option>
+                    </select>
+                </div>
+
+                <!-- Additional Filters -->
+                <div id="filters">
+                    <label for="fromDate">From Date:</label>
+                    <input type="date" id="fromDate" name="fromDate">
+
+                    <label for="toDate">To Date:</label>
+                    <input type="date" id="toDate" name="toDate">
+
+                    <label for="sortBy">Sort By:</label>
+                    <select id="sortBy" name="sortBy">
+                        <option value="">--Select--</option>
+                        <option value="orderID">Order ID</option>
+                        <option value="orderAmount">Price</option>
+                    </select>
+
+                    <label for="sortOrder">Sort Order:</label>
+                    <select id="sortOrder" name="sortOrder">
+                        <option value="">--Select--</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+
+                <!-- Search Button -->
+                <input type="button" id="searchBtn" value="Search">
+
+                <!-- Clear / Refresh Button -->
+                <input type="button" id="clrBtn" value="Clear / Refresh">
+
+
+                <!-- order detail popup modal -->
+                <div id="orderDetailModal" class="modal">
+                    <div class="modal-content">
+                        <span class="closeSym" onclick="closeModal()">×</span>
+                        <div id="orderDetails"></div>
+                    </div>
+                </div>
+
+
+                <!-- Order Table will be added dynamically below -->
+                <div id="ordersTableContainer"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/ordersScript.js"></script>
+</body>
+
+</html>

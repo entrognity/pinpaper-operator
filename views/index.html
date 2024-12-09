@@ -1,0 +1,65 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .orderDetailPopupcontainer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; /* Optional, to add space between order info and customer info */
+    }
+
+    .orderInfo1, .orderInfo2 {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        flex: 1; /* Make both divs take equal space */
+    }
+
+    .PopupClose {
+        display: inline-block;
+        padding: 10px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        font-size: 20px;
+    }
+
+    .PopupClose:hover {
+        background-color: #c0392b;
+    }
+</style>
+
+<h3>Order Details</h3>
+
+<div class="orderDetailPopupcontainer">
+    <!-- Order Information -->
+    <div class="orderInfo1">
+        <p><strong>Order ID:</strong> <%= order.orderId %></p>
+        <p><strong>Order Placed on:</strong> <%= order.orderId %></p>
+        <p><strong>Note:</strong> <%= order.total %></p>
+        <p><strong>Call Before Print:</strong> <%= order.total %></p>
+        <p><strong>Customer Name:</strong> <%= order.orderId %></p>
+        <p><strong>Customer Contact:</strong> <%= order.customer %></p>
+        <p><strong>Order Status:</strong> <%= order.total %></p>
+        <p><strong>Order Amount:</strong> <%= order.total %></p>
+        <p><strong>Payment Received:</strong> <%= order.total %></p>
+        <p><strong>Delivery Option:</strong> <%= order.total %></p>
+    </div>
+
+    <!-- Customer Information -->
+    <div class="orderInfo2">
+        <p><strong>Service Name:</strong> <%= order.customer %></p>
+        <p><strong>Total Pages:</strong> <%= order.total %></p>
+        <p><strong>Files:</strong> <%= order.date.toDateString() %></p>
+        
+    </div>
+</div>
+
+<button class="PopupClose" onclick="window.close()">× Close</button>
